@@ -1,5 +1,5 @@
-const buttonColor = "#7A3C8F";
-const arthemeticbutton = "#C2591D";
+const buttonColor = "#880C9E";
+const arthemeticbutton = "#AE4305";
 export const calculatorButtons = [
   { id: "button-clear", value: "C", backgroundColor: buttonColor },
   { id: "button-back", value: "AC", backgroundColor: buttonColor },
@@ -23,6 +23,6 @@ export const calculatorButtons = [
 
   { id: "button-0", value: "0" },
   { id: "button-decimal", value: "." },
-  { id: "button", value: "<-" },
+
   { id: "button-equals", value: "=", backgroundColor: arthemeticbutton },
 ];

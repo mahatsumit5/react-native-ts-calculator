@@ -19,7 +19,7 @@ export default function Screen({
   return (
     <LinearGradient
       style={styles.screen}
-      colors={["#040B0C", "#152022"]}
+      colors={["#031315", "#052529"]}
       end={[1, 0]}
     >
       <Text style={styles.text}>{screen}</Text>

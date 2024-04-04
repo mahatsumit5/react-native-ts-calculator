@@ -28,6 +28,8 @@ function ReuseableButton({
   screen,
 }: IButton) {
   function handlePress() {
+    const { isOperator, screenData } = isLastCharacterArthemetic(screen);
+
     switch (value) {
       case "C":
         return setScreen(screen.slice(0, -1));
@@ -36,9 +38,11 @@ function ReuseableButton({
         setResult("");
         return;
       case "=":
-        return setResult(eval(screen));
+        if (!isOperator) {
+          return setResult(eval(screen));
+        }
+        return;
       default:
-        const { isOperator, screenData } = isLastCharacterArthemetic(screen);
         if (isOperator) {
           if ("%+-*/.".includes(value)) {
             setScreen(screenData + value);
@@ -55,6 +59,8 @@ function ReuseableButton({
       style={{
         ...styles.container,
         backgroundColor: backgroundColor ? backgroundColor : "#61777A",
+        width: value === "=" ? 190 : 90,
+        borderRadius: value === "=" ? 30 : 30,
       }}
       onPress={handlePress}
     >
@@ -69,20 +75,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#61777A",
     justifyContent: "center",
     alignItems: "center",
-    width: 90,
     marginTop: 10,
     height: 90,
-    borderRadius: 100,
-    shadowColor: "#BAC0C1",
+    shadowColor: "black",
     shadowOffset: {
       width: 1,
       height: 2,
     },
-    shadowOpacity: 0.5,
-    elevation: 5,
+    shadowOpacity: 0.2,
+    elevation: 8,
   },
   text: {
-    fontSize: 25,
+    fontSize: 35,
     color: "white",
     fontWeight: "600",
   },
